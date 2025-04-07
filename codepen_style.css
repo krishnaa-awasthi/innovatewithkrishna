@@ -1,0 +1,116 @@
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00000000;
+            color: #333;
+        }
+
+        /* Container for Cards */
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2em;
+            justify-content: center;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            width: 300px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            background: linear-gradient(to right, #01c3a8, #ffb741);
+            color: white;
+            padding: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            height: 10px;
+            margin: 1rem 0;
+        }
+
+        .progress-bar:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #01c3a8;
+            width: 75%; /* Adjust progress percentage here */
+            transition: width 0.4s ease;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            background: #01c3a8;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #029b88;
+        }
+
+        .btn-countdown {
+            background: transparent;
+            border: 2px solid #01c3a8;
+            color: #01c3a8;
+        }
+
+        .btn-countdown:hover {
+            background: #01c3a8;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            section {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1em;
+            }
+
+            .card {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
