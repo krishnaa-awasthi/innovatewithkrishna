@@ -106,43 +106,50 @@
 </section>
 
     <section class="services" id="services">
-        <h2 class="heading">Certifications</h2>
-        <div class="services-container">
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="accentur_certificate.jpg" alt="Accenture Certificate"></p>
-                </div>
-            </div>
-    
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="tata_certificate.jpg" alt="Tata Certificate"></p>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="certificate 1.png" alt="Tata Certificate"></p>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="certificate 2.png" alt="Tata Certificate"></p>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="python2.png" alt="Tata Certificate"></p>
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <p><img src="data_science.png" alt="Tata Certificate"></p>
-                </div>
+    <h2 class="heading">Certifications</h2>
+    <div class="services-container">
+        <!-- Visible Certificates -->
+        <div class="service-box">
+            <div class="service-info">
+                <img src="accentur_certificate.jpg" alt="Accenture Certificate">
             </div>
         </div>
-    </section>
+        <div class="service-box">
+            <div class="service-info">
+                <img src="tata_certificate.jpg" alt="Tata Certificate">
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="service-info">
+                <img src="certificate 1.png" alt="Certificate 1">
+            </div>
+        </div>
+        <div class="service-box">
+            <div class="service-info">
+                <img src="certificate 2.png" alt="Certificate 2">
+            </div>
+        </div>
+
+        <!-- Hidden Certificates -->
+        <div id="more-certificates" style="display: none;">
+            <div class="service-box">
+                <div class="service-info">
+                    <img src="python2.png" alt="Python Certificate">
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <img src="data_science.png" alt="Data Science Certificate">
+                </div>
+            </div>
+            <!-- Add more certificates here if needed -->
+        </div>
     </div>
-    </section>
+
+    <div class="btn-group" style="text-align: center; margin-top: 20px;">
+        <button class="btn" onclick="toggleCertificates()">View More</button>
+    </div>
+</section>
 
     
 
@@ -241,5 +248,21 @@
             © Krishna Awasthi | All Rights Reserved | 2024
         </p>
     </footer>
+    <script>
+    let isExpanded = false;
+    function toggleCertificates() {
+        const moreSection = document.getElementById("more-certificates");
+        const btn = document.querySelector(".btn-group button");
+        if (isExpanded) {
+            moreSection.style.display = "none";
+            btn.textContent = "View More";
+        } else {
+            moreSection.style.display = "flex";
+            btn.textContent = "View Less";
+        }
+        isExpanded = !isExpanded;
+    }
+</script>
+
 </body>
 </html>
