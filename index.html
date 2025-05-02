@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <div id="particles-js" class="fixed top-0 left-0 w-full h-full -z-10"></div>
     
     <header class="header">
         <a href="#home" class="logo">Krishna
@@ -248,6 +249,7 @@
             © Krishna Awasthi | All Rights Reserved | 2024
         </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
     let isExpanded = false;
     function toggleCertificates() {
@@ -262,6 +264,19 @@
         }
         isExpanded = !isExpanded;
     }
+
+    particlesJS("particles-js", {
+    particles: {
+      number: { value: 60 },
+      size: { value: 3 },
+      color: { value: "#00ffff" },
+      line_linked: { enable: true, color: "#00ffff" },
+      move: { speed: 1 }
+    },
+    interactivity: {
+      events: { onhover: { enable: true, mode: "repulse" } }
+    }
+  });
 </script>
 
 </body>
