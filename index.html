@@ -252,36 +252,19 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
     let isExpanded = false;
-
-document.addEventListener("DOMContentLoaded", () => {
-    const moreSection = document.getElementById("more-certificates");
-    const btn = document.querySelector(".btn-group button");
-
-    // Initially hide the "more certificates" section
-    if (moreSection) moreSection.style.display = "none";
-
-    if (btn) {
-        btn.addEventListener("click", () => {
-            isExpanded = !isExpanded;
-            moreSection.style.display = isExpanded ? "flex" : "none";
-            btn.textContent = isExpanded ? "View Less" : "View More";
-        });
+    function toggleCertificates() {
+        const moreSection = document.getElementById("more-certificates");
+        const btn = document.querySelector(".btn-group button");
+        if (isExpanded) {
+            moreSection.style.display = "none";
+            btn.textContent = "View More";
+        } else {
+            moreSection.style.display = "flex";
+            btn.textContent = "View Less";
+        }
+        isExpanded = !isExpanded;
     }
 
-    // Adjust the particles container height
-    const resizeParticlesCanvas = () => {
-        const particlesEl = document.getElementById("particles-js");
-        if (particlesEl) {
-            particlesEl.style.height = document.body.scrollHeight + "px";
-        }
-    };
-
-    // Set initial size and bind resize events
-    ["load", "resize"].forEach(event =>
-        window.addEventListener(event, resizeParticlesCanvas)
-    );
-
-    // Initialize particles.js
     particlesJS("particles-js", {
         particles: {
             number: { value: 60 },
@@ -292,8 +275,14 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         interactivity: {
             events: {
-                onhover: { enable: true, mode: "repulse" },
-                onclick: { enable: true, mode: "push" }
+                onhover: {
+                    enable: true,
+                    mode: "repulse"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                }
             },
             modes: {
                 repulse: { distance: 100 },
@@ -301,7 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-});
 
 </script>
 
