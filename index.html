@@ -106,51 +106,35 @@
     </div>
 </section>
 
-    <section class="services" id="services">
+   <section class="services" id="services">
     <h2 class="heading">Certifications</h2>
-    <div class="services-container">
-        <!-- Visible Certificates -->
-        <div class="service-box">
-            <div class="service-info">
-                <img src="accentur_certificate.jpg" alt="Accenture Certificate">
-            </div>
-        </div>
-        <div class="service-box">
-            <div class="service-info">
-                <img src="tata_certificate.jpg" alt="Tata Certificate">
-            </div>
-        </div>
-        <div class="service-box">
-            <div class="service-info">
-                <img src="certificate 1.png" alt="Certificate 1">
-            </div>
-        </div>
-        <div class="service-box">
-            <div class="service-info">
-                <img src="certificate 2.png" alt="Certificate 2">
-            </div>
-        </div>
 
-        <!-- Hidden Certificates -->
-        <div id="more-certificates" style="display: none;">
-            <div class="service-box">
-                <div class="service-info">
-                    <img src="python2.png" alt="Python Certificate">
-                </div>
-            </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <img src="data_science.png" alt="Data Science Certificate">
-                </div>
-            </div>
-            <!-- Add more certificates here if needed -->
-        </div>
+    <!-- Visible Certificates -->
+    <div class="services-container">
+        <div class="service-box"><div class="service-info"><img src="accentur_certificate.jpg" alt="Accenture Certificate"></div></div>
+        <div class="service-box"><div class="service-info"><img src="tata_certificate.jpg" alt="Tata Certificate"></div></div>
+        <div class="service-box"><div class="service-info"><img src="certificate 1.png" alt="Certificate 1"></div></div>
+        <div class="service-box"><div class="service-info"><img src="certificate 2.png" alt="Certificate 2"></div></div>
+    </div>
+
+    <!-- Hidden Certificates Row -->
+    <div id="more-certificates" class="services-container" style="display: none;">
+        <div class="service-box"><div class="service-info"><img src="python2.png" alt="Python Certificate"></div></div>
+        <div class="service-box"><div class="service-info"><img src="data_science.png" alt="Data Science Certificate"></div></div>
+        
+        <div class="service-box"><div class="service-info"><img src="python2.png" alt="Python Certificate"></div></div>
+        <div class="service-box"><div class="service-info"><img src="data_science.png" alt="Data Science Certificate"></div></div>
+        
+        <div class="service-box"><div class="service-info"><img src="python2.png" alt="Python Certificate"></div></div>
+        <div class="service-box"><div class="service-info"><img src="data_science.png" alt="Data Science Certificate"></div></div>
+        <!-- Add more if needed -->
     </div>
 
     <div class="btn-group" style="text-align: center; margin-top: 20px;">
         <button class="btn" onclick="toggleCertificates()">View More</button>
     </div>
 </section>
+
 
     
 
@@ -252,19 +236,21 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
     let isExpanded = false;
-    function toggleCertificates() {
-        const moreSection = document.getElementById("more-certificates");
-        const btn = document.querySelector(".btn-group button");
-        if (isExpanded) {
-            moreSection.style.display = "none";
-            btn.textContent = "View More";
-        } else {
-            moreSection.style.display = "flex";
-            btn.textContent = "View Less";
-        }
-        isExpanded = !isExpanded;
+
+function toggleCertificates() {
+    const moreSection = document.getElementById("more-certificates");
+    const btn = document.querySelector(".btn-group button");
+
+    if (isExpanded) {
+        moreSection.style.display = "none";
+        btn.textContent = "View More";
+    } else {
+        moreSection.style.display = "contents"; // or "block" or "grid" if you prefer
+        btn.textContent = "View Less";
     }
 
+    isExpanded = !isExpanded;
+}
     particlesJS("particles-js", {
         particles: {
             number: { value: 60 },
