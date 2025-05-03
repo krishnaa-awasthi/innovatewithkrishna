@@ -434,17 +434,29 @@ span{
 
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Make it responsive */
-    align-items: center;
-    gap: 2.5rem;
-    padding: 0 2rem; /* Add horizontal padding */
+    grid-template-columns: repeat(4, 1fr); /* Always 4 per row on large screens */
+    gap: 2rem;
+    justify-items: center;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .services-container {
+        grid-template-columns: 1fr; /* 1 per row on mobile */
+    }
 }
 
 .service-box {
     background-color: var(--main-color);
     height: 300px;
     width: 100%;
-    max-width: 350px; /* Optional: keeps grid uniform */
+    max-width: 350px;
     border-radius: 2rem;
     border: 3px solid transparent;
     cursor: pointer;
@@ -486,31 +498,6 @@ span{
 
 .service-box:hover .service-info img {
     transform: scale(1.05);
-}
-
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    justify-items: center;
-    padding: 2rem 0;
-}
-
-.btn-group .btn {
-    padding: 10px 20px;
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    border-radius: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-group .btn:hover {
-    background-color: white;
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
 }
 
 .contact{
