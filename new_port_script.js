@@ -1,47 +1,84 @@
-// JavaScript for the portfolio
+// =========================
+// Portfolio JavaScript
+// =========================
 
-// Dynamic text animation for "I'm a <span>"
-const textAnimation = document.querySelector('.text-animation span');
+// -------------------------
+// Dynamic text animation
+// -------------------------
+const textAnimation = document.querySelector(".text-animation span");
 const roles = ["Developer", "Problem Solver", "Innovator", "Learner"];
 let roleIndex = 0;
 
 function changeText() {
+  if (textAnimation) {
     textAnimation.textContent = roles[roleIndex];
-    roleIndex = (roleIndex + 1) % roles.length; // Loop through the roles
+    roleIndex = (roleIndex + 1) % roles.length;
+  }
 }
 
-// Change text every 2 seconds
-setInterval(changeText, 2000);
+// Recursive timeout (better than setInterval for performance)
+function loopText() {
+  changeText();
+  setTimeout(loopText, 2000);
+}
+loopText();
 
-// Menu toggle for smaller screens
+// -------------------------
+// Navbar toggle for mobile
+// -------------------------
 const menuIcon = document.getElementById("menu-icon");
 const navbar = document.querySelector(".navbar");
 
-menuIcon.addEventListener("click", () => {
+if (menuIcon && navbar) {
+  menuIcon.addEventListener("click", () => {
     navbar.classList.toggle("active");
-    menuIcon.classList.toggle("bx-x"); // Toggle menu icon to a close (x) icon
-});
+    menuIcon.classList.toggle("bx-x");
+  });
+}
 
-// Update active class on navbar links while scrolling
+// -------------------------
+// Scroll spy (active navbar links)
+// -------------------------
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
 
 window.addEventListener("scroll", () => {
-    let current = "";
+  let current = "";
 
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
 
-        if (scrollY >= sectionTop - sectionHeight / 3) {
-            current = section.getAttribute("id");
-        }
-    });
+    if (
+      scrollY >= sectionTop - sectionHeight / 3 &&
+      scrollY < sectionTop + sectionHeight - sectionHeight / 3
+    ) {
+      current = section.getAttribute("id");
+    }
+  });
 
-    navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-            link.classList.add("active");
-        }
-    });
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
 });
+
+// -------------------------
+// Certificates View More / Less
+// -------------------------
+const viewMoreBtn = document.getElementById("view-more");
+const certificateContent = document.querySelector(".certificate-content");
+
+if (viewMoreBtn && certificateContent) {
+  viewMoreBtn.addEventListener("click", () => {
+    certificateContent.classList.toggle("show-all");
+
+    if (certificateContent.classList.contains("show-all")) {
+      viewMoreBtn.textContent = "View Less";
+    } else {
+      viewMoreBtn.textContent = "View More";
+    }
+  });
+}
